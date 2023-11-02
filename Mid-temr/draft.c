@@ -17,5 +17,33 @@ int main() {
         printf("%d\n", D - reduced_days);
     }
 
+
+
+
+    //new 
+    #include<stdio.h>
+#include<string.h>
+int main()
+{
+    char s[10001];
+    scanf("%s",&s);
+    int cnt[26]={0};
+    for (int i = 0; i < strlen(s); i++)
+    {
+        int val=s[i]-97;
+        cnt[val]++;
+    }
+    for (char i = 0; i < strlen(s); i++)
+    {
+        if (cnt[s[i]-97]!=0)
+        {
+            printf("%c - %d\n",i+97,cnt[s[i]-97]);
+        }
+        
+        // printf("%c",i);  
+    }
+    
+    return 0;
+}
     return 0;
 }
