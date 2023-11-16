@@ -11,16 +11,14 @@ int main()
         int a,b,c;
         scanf("%lld %d %d %d",&x,&a,&b,&c);
         long long int mult = a*b*c;
-        int ans =x/mult;
+        long long int ans =x/mult;
         if (ans*mult==x)
         {
-            printf("%d\n",ans);
+            printf("%lld\n",ans);
         }else
         {
             printf("-1\n");
         }
     }
-    
-    
     return 0;
 }
