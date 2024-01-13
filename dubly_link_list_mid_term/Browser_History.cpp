@@ -65,7 +65,6 @@ int main (){
                     flag=false;
                 }
                 tem=tem->next;
-                // curr=curr->next;
             }
             if(flag) {
                 cout<<val<<endl;
