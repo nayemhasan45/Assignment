@@ -13,7 +13,6 @@ class Node{
 };
 void insertAtTail(Node*&tail,Node*&head,string v){
     Node*newNode=new Node(v);
-    Node*tem=head;
     if (head==NULL)
     {
         head=newNode;
@@ -23,7 +22,7 @@ void insertAtTail(Node*&tail,Node*&head,string v){
         newNode->prev=tail;
         tail->next=newNode;
         tail=tail->next;
-    }
+    }  
 }
 void printNode(Node*head){
     Node*tem=head;
@@ -32,28 +31,63 @@ void printNode(Node*head){
         cout<<tem->val<<" ";
         tem=tem->next;
     }
-    cout<<endl;
 }
 int main (){
     Node*head=NULL;
     Node*tail=NULL;
     while (true)
     {
-        string v;
-        cin>>v;
-        if(v=="end") break;
+        string val;
+        cin>>val;
+        if(val=="end") break;
         else{
-            insertAtTail(head,tail,v);
+            insertAtTail(tail,head,val);
         }
     }
-    // int q;
-    // cin>>q;
-    // while (q--)
-    // {
-    //     string v,add;
-    //     cin>>v;
-    // }
-    printNode(head);
-    // cout<<endl<<head->val;
+    int q;
+    cin>>q;
+    Node*curr=head;
+    while (q--)
+    {
+        string v,val;
+        cin>>v;
+        Node*tem=head;
+        if(v=="visit"){
+            cin>>val;
+            bool flag=true;
+            // curr=head;
+            while (tem!=NULL)
+            {
+                if(tem->val==val){
+                    flag=true;
+                    break;
+                }else{
+                    flag=false;
+                }
+                tem=tem->next;
+                // curr=curr->next;
+            }
+            if(flag) {
+                cout<<val<<endl;
+                curr=tem;
+            }
+            else cout<<"Not Available"<<endl;
+        }else if(v=="prev"){
+            if(curr->prev!=NULL){
+                cout<<curr->prev->val<<endl;
+                curr=curr->prev;
+            }else{
+                cout<<"Not Available"<<endl;
+            }
+        }else if(v=="next"){
+             if(curr->next!=NULL){
+                cout<<curr->next->val<<endl;
+                curr=curr->next;
+            }else{
+                cout<<"Not Available"<<endl;
+            }
+        }
+    }
+    
     return 0;
 }
